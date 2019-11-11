@@ -1,6 +1,10 @@
+// A demonstration of command-line arguments and user inputs.
+// Accept one command-line argument that specifies the number of inputs to concatenate.
+// Concatenates the user inputs into a String.
+
 import java.util.Scanner;
 
-public class User_Input {
+public class UserInput {
 	public static void main(String[] args) {
 		// Check if there is only one command-line argument.
 		if (args.length != 1) {
