@@ -1,7 +1,7 @@
-public class SinglyLinkedList {
+public class DoublyLinkedList {
 	private Node head, tail;
 	
-	SinglyLinkedList() {
+	DoublyLinkedList() {
 		this.head = null;
 		this.tail = null;
 	}
@@ -17,6 +17,7 @@ public class SinglyLinkedList {
 			this.head = this.tail = n;
 		} else {
 			this.tail.setNext(n);
+			n.setPrev(this.tail);
 			this.tail = n;
 		}
 	}
@@ -25,20 +26,14 @@ public class SinglyLinkedList {
 		if (this.tail == null) {
 			throw new EmptyListException();
 		} else {
-			if (this.head.getNext() == null) {
-				Object o = this.head.getElement();
-				this.head = this.tail = null;
-				return o;
+			Object o = this.tail.getElement();
+			this.tail = this.tail.getPrev();
+			if (this.tail == null) {
+				this.head = null;
 			} else {
-				Node temp = this.head;
-				while (temp.getNext().getNext() != null) {
-					temp = temp.getNext();
-				}
-				Object o = temp.getNext().getElement();
-				this.tail = temp;
 				this.tail.setNext(null);
-				return o;
 			}
+			return o;
 		}
 	}
 	
@@ -53,6 +48,7 @@ public class SinglyLinkedList {
 			this.head = this.tail = n;
 		} else {
 			n.setNext(this.head);
+			this.head.setPrev(n);
 			this.head = n;
 		}
 	}
@@ -65,6 +61,8 @@ public class SinglyLinkedList {
 			this.head = this.head.getNext();
 			if (this.head == null) {
 				this.tail = null;
+			} else {
+				this.head.setPrev(null);
 			}
 			return o;
 		}
