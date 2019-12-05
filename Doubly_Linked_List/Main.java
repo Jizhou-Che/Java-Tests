@@ -25,14 +25,14 @@ public class Main {
 						System.out.println(value + " appended.");
 					} catch (NumberFormatException e) {
 						System.out.println("Not an integer.");
-					} catch(NullNodeException e) {
-						System.out.println(e);
+					} catch (NullNodeException e) {
+						e.printStackTrace();
 					}
 					break;
 				case 2:
 					try {
 						System.out.println(list.detach() + " detached.");
-					} catch(EmptyListException e) {
+					} catch (EmptyListException e) {
 						System.out.println("The list is empty.");
 					}
 					break;
@@ -44,14 +44,14 @@ public class Main {
 						System.out.println(value + " pushed.");
 					} catch (NumberFormatException e) {
 						System.out.println("Not an integer.");
-					} catch(NullNodeException e) {
-						System.out.println(e);
+					} catch (NullNodeException e) {
+						e.printStackTrace();
 					}
 					break;
 				case 4:
 					try {
-						System.out.println(list.pop() + " poped.");
-					} catch(EmptyListException e) {
+						System.out.println(list.pop() + " popped.");
+					} catch (EmptyListException e) {
 						System.out.println("The list is empty.");
 					}
 					break;
