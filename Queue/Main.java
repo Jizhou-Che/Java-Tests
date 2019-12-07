@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		ArrayBasedStack stack = new ArrayBasedStack();
+		ArrayBasedQueue queue = new ArrayBasedQueue();
 		
 		printOptions();
 		
@@ -18,45 +18,45 @@ public class Main {
 			
 			switch (option) {
 				case 1:
-					System.out.print("The integer to push?: ");
+					System.out.print("The integer to enqueue?: ");
 					try {
 						int value = Integer.parseInt(input.nextLine());
-						stack.push(value);
-						System.out.println(value + " pushed.");
+						queue.enqueue(value);
+						System.out.println(value + " enqueued.");
 					} catch (NumberFormatException e) {
 						System.out.println("Not an integer.");
 					}
 					break;
 				case 2:
 					try {
-						System.out.println(stack.pop() + " popped.");
-					} catch (EmptyStackException e) {
-						System.out.println("The stack is empty.");
+						System.out.println(queue.dequeue() + " dequeued.");
+					} catch (EmptyQueueException e) {
+						System.out.println("The queue is empty.");
 					}
 					break;
 				case 3:
 					try {
-						System.out.println("Top of stack is " + stack.top() + ".");
-					} catch (EmptyStackException e) {
-						System.out.println("The stack is empty.");
+						System.out.println("Front of queue is " + queue.front() + ".");
+					} catch (EmptyQueueException e) {
+						System.out.println("The queue is empty.");
 					}
 					break;
 				case 4:
-					System.out.println("Size of stack is " + stack.size() + ".");
+					System.out.println("Size of queue is " + queue.size() + ".");
 					break;
 				case 5:
-					if (stack.isEmpty()) {
-						System.out.println("Stack is empty.");
+					if (queue.isEmpty()) {
+						System.out.println("Queue is empty.");
 					} else {
-						System.out.println("Stack is not empty.");
+						System.out.println("Queue is not empty.");
 					}
 					break;
 				case 7:
-					stack.clear();
-					System.out.println("Stack cleared.");
+					queue.clear();
+					System.out.println("Queue cleared.");
 					break;
 				case 8:
-					stack.print();
+					queue.print();
 					break;
 				case 9:
 					printOptions();
@@ -71,13 +71,13 @@ public class Main {
 	}
 	
 	private static void printOptions() {
-		System.out.println("1: Push");
-		System.out.println("2: Pop");
-		System.out.println("3: Check top");
+		System.out.println("1: Enqueue");
+		System.out.println("2: Dequeue");
+		System.out.println("3: Check front");
 		System.out.println("4: Check size");
 		System.out.println("5: Check empty");
-		System.out.println("7: Clear the stack");
-		System.out.println("8: Print the stack");
+		System.out.println("7: Clear the queue");
+		System.out.println("8: Print the queue");
 		System.out.println("9: See all options");
 		System.out.println("0: Quit");
 	}

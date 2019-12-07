@@ -1,11 +1,11 @@
 public class ArrayBasedStack implements Stack {
-	Object[] objects;
-	int topIndex;
-
+	private Object[] objects;
+	private int topIndex;
+	
 	ArrayBasedStack() {
 		clear();
 	}
-
+	
 	@Override
 	public void push(Object o) {
 		if (size() == objects.length) {
@@ -16,7 +16,7 @@ public class ArrayBasedStack implements Stack {
 		topIndex++;
 		objects[topIndex] = o;
 	}
-
+	
 	@Override
 	public Object pop() throws EmptyStackException {
 		if (isEmpty()) {
@@ -26,7 +26,7 @@ public class ArrayBasedStack implements Stack {
 			return objects[topIndex + 1];
 		}
 	}
-
+	
 	@Override
 	public Object top() throws EmptyStackException {
 		if (isEmpty()) {
@@ -35,23 +35,23 @@ public class ArrayBasedStack implements Stack {
 			return objects[topIndex];
 		}
 	}
-
+	
 	@Override
 	public int size() {
 		return topIndex + 1;
 	}
-
+	
 	@Override
 	public boolean isEmpty() {
 		return size() == 0;
 	}
-
+	
 	@Override
 	public void clear() {
 		objects = new Object[8];
 		topIndex = -1;
 	}
-
+	
 	@Override
 	public void print() {
 		for (int i = 0; i < size(); i++) {
