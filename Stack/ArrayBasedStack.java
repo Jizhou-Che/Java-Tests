@@ -9,6 +9,7 @@ public class ArrayBasedStack implements Stack {
 	@Override
 	public void push(Object o) {
 		if (size() == objects.length) {
+			// Copy to a larger array.
 			Object[] temp = new Object[objects.length * 2];
 			System.arraycopy(objects, 0, temp, 0, objects.length);
 			objects = temp;

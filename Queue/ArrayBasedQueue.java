@@ -10,13 +10,12 @@ public class ArrayBasedQueue implements Queue {
 	@Override
 	public void enqueue(Object o) {
 		if (size() + 1 == objects.length) {
+			// Copy to a larger array.
 			Object[] temp = new Object[objects.length * 2];
-			//
 			System.arraycopy(objects, nextDequeueIndex, temp, 0, objects.length - nextDequeueIndex);
 			System.arraycopy(objects, 0, temp, objects.length - nextDequeueIndex, nextEnqueueIndex + 1);
 			nextDequeueIndex = 0;
 			nextEnqueueIndex = objects.length - 1;
-			//
 			objects = temp;
 		}
 		objects[nextEnqueueIndex] = o;
